@@ -5,7 +5,12 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-color: #f4f4f4;
+    padding-bottom: 60px; /* Ensures footer doesn’t overlap on mobile */
 }
+body {
+    min-height: 100vh; /* Ensures footer stays at the bottom on smaller screens */
+}
+
 
 /* Header & Navigation */
 header {
@@ -21,7 +26,7 @@ nav ul {
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block;
     margin: 0 15px;
 }
 
@@ -232,8 +237,6 @@ nav ul li a:hover {
     margin-bottom: 10px;
 }
 
-
-
 /* Projects Section */
 .projects {
     background: white;
@@ -295,7 +298,61 @@ footer {
     color: white;
     text-align: center;
     padding: 20px 0;
-    position: fixed;
-    bottom: 0;
+    position: fixed; /* Keep footer fixed at the bottom */
+    bottom: 0; /* Always at the bottom */
+    left: 0;
     width: 100%;
+    z-index: 1000; /* Ensures it stays above other content */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Navigation changes */
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    /* Home Section */
+    .home h1 {
+        font-size: 2.5rem;
+    }
+
+    .home p {
+        font-size: 1rem;
+    }
+
+    /* Profile Image */
+    .profile-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Skills Section */
+    .skill-item {
+        width: 100%;
+        max-width: 200px;
+        margin: 10px 0;
+    }
+
+    .skill-set {
+        flex-direction: column;
+    }
+
+    /* Experience, Education, Certifications Sections */
+    .experience-item, .education-item, .certification-item {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    /* Projects Section */
+    .project {
+        margin-top: 10px;
+        padding: 15px;
+    }
+
+    /* Contact Section */
+    .contact-info p {
+        font-size: 0.9rem;
+    }
 }
